@@ -6,9 +6,15 @@ const alertValidaciones = document.getElementById("alertValidaciones");
 const tablaListaCompras = document.getElementById("tablaListaCompras");
 const cuerpoTabla = tablaListaCompras.getElementsByTagName("tbody").item(0);//item(0) primer elemento que encuentres
 
+
+const contadorProductos = document.getElementById("contadorProductos");
+const productosTotal =document.getElementById("productosTotal");
+const precioTotal = document.getElementById("precioTotal");
+
 ///////////////////Validar la cantidad//////////////////////////////////////////////////     
 let cont = 0; //Numeracion de la primera columna de la tabla
-
+let costoTotal = 0;
+let totalEnProductos = 0;
 
 
 
@@ -82,6 +88,20 @@ btnAgregar.addEventListener("click", function(event){
                     </tr>`;
             cuerpoTabla.insertAdjacentHTML("beforeend",row);
            
+        ///contador en su texto interno es el cons
+            contadorProductos.innerText = cont;
+
+
+            costoTotal += precio * Number(txtNumber.value);
+            contadorProductos.innerText = "$ " + costoTotal.toFixed;
+            precioTotal.innerText = "$" + costoTotal.toFixed(2); //El 2 es por la cantidad de decimales
+            totalEnProductos += Number(txtNumber.value);
+            productosTotal.innerText = totalEnProductos;
+            contadorProductos.innerText = cont;
+
+
+
+
             txtName.value ="";
             txtNumber.value="";
             txtName.focus();  //////////////agrega el foco a txtname
